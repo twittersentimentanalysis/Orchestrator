@@ -11,16 +11,15 @@ import java.util.Properties;
  */
 public class ConfigProperties
 {
-    private static Properties properties;
-
     /** Read properties file.
      *
      * @return Returns an instance of this class.
      */
     public static Properties readProperties()
     {
-        properties = new Properties();
+        Properties properties = new Properties();
         FileInputStream inputStream = null;
+
         try
         {
             inputStream = new FileInputStream("src\\main\\resources\\config.properties");
