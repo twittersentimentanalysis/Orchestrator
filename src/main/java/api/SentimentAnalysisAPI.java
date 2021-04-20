@@ -7,13 +7,13 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
-/** Class that contains the methods to connect with Sentiment Analysis api.API
+/** Class that contains the methods to connect with Sentiment Analysis API
  *
  * @author Ariadna de Arriba
  */
-public class API
+public class SentimentAnalysisAPI
 {
-    private String host = "http://localhost:8080/api/";
+    private final String host = "http://localhost:8080/api/";
 
     /** Make a request to ML tool for sentiment analysis.
      *
@@ -21,7 +21,6 @@ public class API
      * @param tool Machine learning tool to do sentiment analysis.
      * @param apiKey Api key to authorize the machine learning tool.
      * @return Returns a string that contains a json with each of six emotions weighted.
-     * @throws IOException {@link IOException caused by an error in the api.API call. }
      */
     public String getEmotion(String text, String tool, String apiKey) throws IOException
     {
@@ -54,8 +53,6 @@ public class API
      * @param to Target language code.
      * @param apiKey Api-key to authorize translator api.API.
      * @return Returns a string that contains a json with text translated and source and target language codes.
-     * @throws IOException {@link IOException caused by an error during the execution of the http request.}
-     * @throws ParseException {@link ParseException }
      */
     public String translate(String text, String translator, String from, String to, String apiKey) throws IOException, ParseException
     {
@@ -87,8 +84,7 @@ public class API
 
         JSONParser parser = new JSONParser();
         JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
-        String translation = jsonBody.get("translation").toString();
 
-        return translation;
+        return jsonBody.get("translation").toString();
     }
 }
