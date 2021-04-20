@@ -10,7 +10,6 @@ import org.apache.kafka.common.errors.WakeupException;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.json.simple.parser.ParseException;
 import twitter.Data;
-import twitter.Preprocessing;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -24,11 +23,11 @@ import java.util.Properties;
  */
 public class ConsumerThread extends Thread
 {
-    private String topicName;
-    private String groupId;
     private KafkaConsumer<String, String> kafkaConsumer;
-    private Properties properties = ConfigProperties.readProperties();
-    private Data data = new Data();
+    private final String topicName;
+    private final String groupId;
+    private final Properties properties = ConfigProperties.readProperties();
+    private final Data data = new Data();
 
     /** Constructor
      *
@@ -67,7 +66,7 @@ public class ConsumerThread extends Thread
 
             while (true)
             {
-                records = kafkaConsumer.poll(Duration.ofMillis(100));;
+                records = kafkaConsumer.poll(Duration.ofMillis(100));
                 analyzeRecords(records);
             }
         } catch (WakeupException ex)
@@ -96,8 +95,7 @@ public class ConsumerThread extends Thread
      * learning model.
      *
      * @param records Records read.
-     * @throws IOException {@link IOException caused by writeCsv or predictEmotionFromKafka methods.}
-     * @throws ParseException {@link ParseException caused by writeCsv or predictEmotionFromKafka methods.}}
++     * @throws ParseException {@link ParseException caused by writeCsv or predictEmotionFromKafka methods.}}
      */
     private void analyzeRecords(ConsumerRecords<String, String> records) throws IOException, ParseException
     {
