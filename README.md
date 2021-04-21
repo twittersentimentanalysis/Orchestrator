@@ -5,7 +5,7 @@ Orchestrator for receiving tweets from Kafka and apply sentiment analysis.
 ### Local
 1. Clone this project to a local folder and go to root folder
 
-   `git clone hhttps://github.com/twittersentimentanalysis/Orchestrator.git`
+   `git clone https://github.com/twittersentimentanalysis/Orchestrator.git`
 
 2. Build the Spring Boot project with Maven
 
