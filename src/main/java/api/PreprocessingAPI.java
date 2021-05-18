@@ -40,7 +40,6 @@ public class PreprocessingAPI
 
         Response response = client.newCall(request).execute();
 
-        //String jsonResponse = response.body().string().replace("\"", "");
         String jsonResponse = response.body().string();
         return jsonResponse;
     }
