@@ -20,18 +20,15 @@ public class Orchestrator
      */
     public static void main(String[] argv) throws InterruptedException, IOException
     {
-        if (properties.getProperty("goal").equals("testing")) Data.getAccuracyParallelDots();
-        else
-        {
-            String topicName = properties.getProperty("kafka_topic");
-            String groupId = properties.getProperty("group_id");
 
-            ConsumerThread consumerRunnable = new ConsumerThread(topicName, groupId);
-            consumerRunnable.start();
+        String topicName = properties.getProperty("kafka_topic");
+        String groupId = properties.getProperty("group_id");
 
-            consumerRunnable.getKafkaConsumer().wakeup();
-            System.out.println("Stopping consumer .....");
-            consumerRunnable.join();
-        }
+        ConsumerThread consumerRunnable = new ConsumerThread(topicName, groupId);
+        consumerRunnable.start();
+
+        consumerRunnable.getKafkaConsumer().wakeup();
+        System.out.println("Stopping consumer .....");
+        consumerRunnable.join();
     }
 }
