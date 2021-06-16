@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class SentimentAnalysisAPI
 {
-    private final String host = "http://localhost:8080/api/";
+    private final String host = "http://0.0.0.0:8080/api/";
 
     /** Make a request to ML tool for sentiment analysis.
      *

@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class PreprocessingAPI
 {
-    private final String url = "http://localhost:8390/api/v1/preprocessing";
+    private final String url = "http://0.0.0.0:8390/api/v1/preprocessing";
 
     /** Make a request to ML tool for sentiment analysis.
      *
