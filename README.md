@@ -2,6 +2,7 @@
 Orchestrator for receiving tweets from Kafka and apply sentiment analysis.
 
 ## How to run
+
 ### Local
 1. Clone this project to a local folder and go to root folder
 
@@ -18,4 +19,7 @@ Orchestrator for receiving tweets from Kafka and apply sentiment analysis.
 4. Run the project
 
     `mvn exec:java -Dexec.mainClass=Orchestrator`
-    
+
+
+
+***Note: File `src/main/resources/config.properties` can be modified at anytime to point to localhost or gessi endpoint.*
