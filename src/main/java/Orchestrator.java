@@ -1,6 +1,5 @@
 import config.ConfigProperties;
 import kafka.ConsumerThread;
-import twitter.Data;
 
 import java.io.IOException;
 import java.util.Properties;
