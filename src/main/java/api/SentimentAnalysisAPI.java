@@ -1,11 +1,13 @@
 package api;
 
+import config.ConfigProperties;
 import okhttp3.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.Properties;
 
 /** Class that contains the methods to connect with Sentiment Analysis API
  *
@@ -13,7 +15,8 @@ import java.io.IOException;
  */
 public class SentimentAnalysisAPI
 {
-    private final String host = "http://0.0.0.0:8080/api/";
+    private final Properties properties = ConfigProperties.readProperties();
+    private final String baseUrl = properties.getProperty("host") + ":8080/api/";
 
     /** Make a request to ML tool for sentiment analysis.
      *
@@ -24,7 +27,7 @@ public class SentimentAnalysisAPI
      */
     public String getEmotion(String text, String tool, String apiKey) throws IOException
     {
-        String url = host + "emotion?tool=" + tool;
+        String url = baseUrl + "emotion?tool=" + tool;
         OkHttpClient client = new OkHttpClient();
 
         JSONObject jsonObject = new JSONObject();
@@ -56,7 +59,7 @@ public class SentimentAnalysisAPI
      */
     public String translate(String text, String translator, String from, String to, String apiKey) throws IOException, ParseException
     {
-        String url = host + "translator?translator=" + translator;
+        String url = baseUrl + "translator?translator=" + translator;
         OkHttpClient client = new OkHttpClient();
 
         JSONObject transObj = new JSONObject();

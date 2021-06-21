@@ -1,10 +1,11 @@
 package api;
 
-import com.google.gson.Gson;
+import config.ConfigProperties;
 import okhttp3.*;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.Properties;
 
 /** Class that contains the methods to connect with Twitter Preprocessing API
  *
@@ -12,7 +13,8 @@ import java.io.IOException;
  */
 public class PreprocessingAPI
 {
-    private final String url = "http://0.0.0.0:8390/api/v1/preprocessing";
+    private final Properties properties = ConfigProperties.readProperties();
+    private final String url = properties.getProperty("host") + ":8390/api/v1/preprocessing";
 
     /** Make a request to ML tool for sentiment analysis.
      *
