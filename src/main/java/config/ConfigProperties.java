@@ -18,18 +18,10 @@ public class ConfigProperties
     public static Properties readProperties()
     {
         Properties properties = new Properties();
-        FileInputStream inputStream = null;
 
         try
         {
-            inputStream = new FileInputStream("config.properties");
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        try
-        {
-            properties.load(inputStream);
+            properties.load(ConfigProperties.class.getResourceAsStream("/config.properties"));
         } catch (IOException e)
         {
             e.printStackTrace();
