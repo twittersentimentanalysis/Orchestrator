@@ -22,7 +22,7 @@ public class ConfigProperties
 
         try
         {
-            inputStream = new FileInputStream("src\\main\\resources\\config.properties");
+            inputStream = new FileInputStream("config.properties");
         } catch (FileNotFoundException e)
         {
             e.printStackTrace();
