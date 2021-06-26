@@ -14,7 +14,7 @@ import java.util.Properties;
 public class PreprocessingAPI
 {
     private final Properties properties = ConfigProperties.readProperties();
-    private final String url = properties.getProperty("host") + ":8390/api/v1/preprocessing";
+    private final String url = properties.getProperty("host") + ":8390/tweets-preprocessing/v1/preprocessing";
 
     /** Make a request to ML tool for sentiment analysis.
      *
