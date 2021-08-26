@@ -1,8 +1,11 @@
 # Orchestrator
 Orchestrator for receiving tweets from Kafka and apply sentiment analysis.
 
-## How to run
+## Documentation
+https://twittersentimentanalysis.github.io/Orchestrator/javadoc/index.html
 
+
+## How to run
 ### Local
 1. Clone this project to a local folder and go to root folder
 
